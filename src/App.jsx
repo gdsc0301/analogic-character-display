@@ -74,11 +74,11 @@ function App() {
     <div>
       <span ref={keyboardTrigger} tabIndex="-1" contentEditable className='absolute top-0 left-0 w-full h-full text-[0] opacity-0 outline-none -z-10'></span>
       <h2 className='text-6xl font-black mb-12'>Type something</h2>
+      <button className="openKeyboardBtn" onClick={openKeyboard}>Open Keyboard</button>
       <h1 className='displaysPanel'>
         {displays.map((char, i) => <CharDisplay key={`display_${i}`} char={char} />)}
         <span ref={enoughRef} className='enough' style={{display: mainText.length < displays.length && 'none'}}> enough for you...</span>
       </h1>
-      <button className="openKeyboardBtn" onClick={openKeyboard}>Open Keyboard</button>
     </div>
   )
 }
