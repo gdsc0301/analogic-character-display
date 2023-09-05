@@ -1,0 +1,91 @@
+.displaysPanel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+    gap: 16px 8px;
+
+    perspective: 800px;
+    perspective-origin: 50dvw 50dvh;
+    transform-style: preserve-3d;
+
+    $height: 80px;
+    .charDisplay {
+        position: relative;
+        width: calc((#{$height} / 5) * 4);
+        height: calc((#{$height} / 5) * 5);
+    
+        display: block;
+        transform-style: preserve-3d;
+    
+        .char {
+            position: absolute;
+            top: 0;
+            left: 0;
+    
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            width: 100%;
+            height: 100%;
+    
+            font-size: 4rem;
+            text-align: center;
+            color: #fff;
+    
+            background-color: #da3038;
+    
+            border-radius:  0 0 8px 8px;
+            transition: rotate 350ms ease-in-out;
+    
+            transform-origin: top center;
+            rotate: x 350deg;
+            translate: 0 0 -5px;
+    
+            transform-style: preserve-3d;
+    
+            box-shadow: 0 0 0 1px #000;
+            backface-visibility: visible;
+            will-change: rotate transform translate;
+    
+            &[enabled="true"] {
+                rotate: x 0deg;
+                translate: 0 0 0;
+            }
+        }
+    }
+
+    .enough {
+        @apply
+            ml-6
+            flex items-center
+            text-xl font-bold
+            underline decoration-red-500/0
+            duration-100;
+        height: $height;
+        animation-play-state: paused;
+
+        @keyframes highlight {
+            0% {
+                @apply text-xl decoration-red-500/0; 
+            }
+
+            75% {
+                @apply text-2xl decoration-red-500/100;
+            }
+
+            100% {
+                @apply text-xl decoration-red-500/0;
+            }
+        }
+
+        &.high {
+            animation: highlight 750ms ease-out 1;
+            animation-fill-mode: backwards;
+            animation-direction: normal;
+            animation-play-state: running;
+        }
+    }
+}

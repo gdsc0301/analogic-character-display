@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  width: 100%;
+  max-height: 100dvh;
+
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+
+  .openKeyboardBtn {
+    @apply
+      block md:hidden mt-12 mx-auto
+      px-6 py-2
+      text-sm font-bold
+      text-white
+      bg-red-500
+      rounded
+      shadow
+      cursor-pointer
+      duration-100
+      hover:bg-red-600
+      focus:outline-none
+      active:bg-red-700
+      active:outline-none
+      transform
+      hover:scale-105
+      active:scale-100;
+  }
+}
