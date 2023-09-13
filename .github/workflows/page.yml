@@ -7,6 +7,11 @@ on:
     branches:
       - main
 
+  # Triggers the workflow when the repository name is changed, e.g. renamed
+  repository_dispatch:
+    types: [repository-renamed]
+
+
 permissions:
   contents: write
 
