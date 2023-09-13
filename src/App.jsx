@@ -24,6 +24,11 @@ function App() {
           return prev.slice(0, -1);
         }
 
+        // if any key that is not a letter or number or space or backspace is pressed
+        if (!e.key.match(/^[a-zA-Z0-9?!'.+\- ]*$/) || e.key.length > 1) {
+          return prev;
+        }
+
         if(prev.length >= displays.length) {
           enoughRef.current.classList.add('high');
     
@@ -62,7 +67,7 @@ function App() {
     ));
   }, [mainText]);
 
-  const openKeyboard = (e) => {
+  const openKeyboard = () => {
     if ("virtualKeyboard" in navigator) {
       navigator.virtualKeyboard.show();
     }
